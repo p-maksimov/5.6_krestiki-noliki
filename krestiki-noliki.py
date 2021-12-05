@@ -1,3 +1,4 @@
+# функция вывода игрового поля
 def print_doska(desk):
     for row in desk:
         line = ''
@@ -5,7 +6,7 @@ def print_doska(desk):
             line += cell + " "
         print(line)
 
-
+# проверка пользовательского ввода
 def check_input(val):
     if val.isdecimal():
         val = int(val)
