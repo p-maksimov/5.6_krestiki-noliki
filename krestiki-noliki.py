@@ -33,9 +33,10 @@ WIN_0 = ["0", "0", "0"]
 
 player = PLAYER_X
 game_over = False
-
+n = 1
 # Игра начинается
-while not game_over:
+while (not game_over) and (n <= 9):
+    print(f"номер хода = {n}")
     # Печатаем доску
     print_doska(doska)
     # Блок ввода и проверки ввода
@@ -72,7 +73,7 @@ while not game_over:
             break
 
     # 2 - проверка вертикалей
-    for i in range(1, 3):
+    for i in range(1,3):
         check = []
         for stroka in doska[1:3]:
             check.append(stroka[i])
@@ -83,7 +84,7 @@ while not game_over:
     # 3 - проверка диагоналей
     check = []
     check2 = []
-    for i in range(1, 4):
+    for i in range(1,4):
         stroka = doska[i]
         check.append(stroka[i])
         check2.append(stroka[4-i])
@@ -97,11 +98,15 @@ while not game_over:
             player = PLAYER_0
         else:
             player = PLAYER_X
-
+    n += 1
 # конец основного цикла
-print("\n"*2)
-print_doska(doska)
-if player == PLAYER_X:
+
+print("\n"*2, "=========================")
+
+if n > 9:
+    print("Игра окончена, НИЧЬЯ")
+elif player == PLAYER_X:
     print("Игра окончена, победил ИГРОК1")
 else:
     print("Игра окончена, победил ИГРОК2")
+print_doska(doska)
